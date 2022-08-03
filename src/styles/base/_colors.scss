@@ -1,0 +1,47 @@
+$theme-colors: (
+    //ACCENT BLUE
+    "blue-accent-primary": (
+        "light": #077E9C,
+        "dark": #7CDFF8
+    ),
+    "blue-accent-container-primary": (
+        "light": #BBC7C9,
+        "dark": #1B2527
+    ),
+    //ACCENT GREEN
+    "green-accent-primary": (
+        "light": #097F3C,
+        "dark": #36E281
+    ),
+    //SURFACE
+    "surface-primary": (
+        "light": #DBD9D6,
+        "dark": #121414
+    ),
+    //ON SURFACE
+    "on-surface-primary": (
+        "light": #121414,
+        "dark": #EAEAEC
+    ),
+    "on-surface-secondary": (
+        "light": #727283,
+        "dark": #A8A8B3
+    ),
+    //OUTLINE
+    "outline-secondary": (
+        "light": #AEAEB7,
+        "dark": #3A3A41
+    )
+);
+
+$common-colors: (
+    //ACCENT
+    "yellow-accent-primary": #EAF47B,
+    "on-accent-primary": #121414,
+    //ON SURFACE
+    "on-surface-tertiary": #777788,
+    //OVER SURFACE
+    "over-surface-primary": rgba(255, 255, 255, 0.14),
+    //OUTLINE
+    "outline-primary": #29292E
+);

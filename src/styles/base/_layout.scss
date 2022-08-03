@@ -1,0 +1,18 @@
+@mixin break($size) {
+    @media screen and (max-width: #{$size}px) {
+      @content;
+    }
+}
+
+@mixin sectionContainer {
+    padding: 0 48px;
+
+    @include br.custom(706) {
+        padding: 0 24px;
+    }
+}
+
+@mixin contentContainer {
+    max-width: 1080px;
+    margin: 0 auto;
+}
