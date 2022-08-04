@@ -7,12 +7,25 @@
 @mixin sectionContainer {
     padding: 0 48px;
 
-    @include br.custom(706) {
+    @include break(706) {
         padding: 0 24px;
     }
 }
 
 @mixin contentContainer {
-    max-width: 1080px;
+    max-width: 1296px;
     margin: 0 auto;
+}
+
+@mixin stack($direction: 'H', $justify: flex-start, $align: flex-start) {
+    display: flex;
+
+    @if $direction == 'H' {
+      flex-direction: row;
+    } @else {
+      flex-direction: column;
+    }
+
+    justify-content: $justify;
+    align-items: $align;
 }
