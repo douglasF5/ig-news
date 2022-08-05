@@ -21,7 +21,7 @@ body {
     background-color: var(--c-surface-primary);
 }
 
-body.lightTheme {
+main.lightTheme {
     @each $color, $theme in c.$theme-colors {
         --c-#{$color}: #{map-get($theme, "light")};
     }

@@ -5,6 +5,8 @@
 
 .sectionContainer {
     @include l.sectionContainer;
+
+    background-color: var(--c-surface-primary);
 }
 
 .contentContainer {
@@ -38,7 +40,7 @@
     @include l.stack(H, center, center);
 
     padding: u.toRem(8);
-    border: 1px solid var(--c-outline-primary);
+    border: 1px solid var(--c-outline-secondary);
     border-radius: 50%;
     background-color: transparent;
     transition: transform 150ms ease-in-out;
@@ -79,9 +81,11 @@
 
     h1 {
         @include t.heading("L");
+        color: var(--c-on-surface-primary);;
     }
 
     p {
-        @include t.base("L", "regular", 150%);
+        @include t.base("L", "regular", 160%);
+        color: var(--c-on-surface-primary);;
     }
 }

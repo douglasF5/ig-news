@@ -1,13 +1,19 @@
 import s from '../src/styles/post.module.scss';
 import { ChevronLeft, Sun, Moon, Bookmark, BookmarkFilled } from '../src/components/Icons';
 import { motion, useScroll } from 'framer-motion';
+import { useState } from 'react';
 
 export default function Post() {
     const { scrollYProgress } = useScroll();
+    const [isLightTheme, setIsLightTheme] = useState(false);
+
+    function handleSwitchTheme() {
+        setIsLightTheme(!isLightTheme);
+    }
 
     //RETURNING STATEMENT
     return(
-        <main className={s.sectionContainer}>
+        <main className={`${s.sectionContainer} ${isLightTheme ? 'lightTheme' : ''}`}>
             <motion.div className={s.progressBar} style={{ scaleX: scrollYProgress }}/>
             <section className={s.contentContainer}>
                 <div className={s.actionsWrapper}>
@@ -15,9 +21,12 @@ export default function Post() {
                         <span>Go back</span>
                         <ChevronLeft width={24} height={24} />
                     </button>
-                    <button className={s.actionButton}>
+                    <button className={s.actionButton} onClick={handleSwitchTheme}>
                         <span>Switch theme</span>
-                        <Sun width={24} height={24} />
+                        {!isLightTheme
+                            ? <Sun width={24} height={24} />
+                            : <Moon width={24} height={24} />
+                        }
                     </button>
                     <button className={s.actionButton}>
                         <span>Bookmark</span>
