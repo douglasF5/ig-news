@@ -58,7 +58,7 @@ export default function Feed() {
         <>
             <Header />
             <main className={s.sectionContainer}>
-                <div className={s.contentContainer}>
+                <section className={s.contentContainer}>
                     <div className={s.postsTitleBar}>
                         <h1>Feed</h1>
                         <div className={s.inputFieldWrapper}>
@@ -101,7 +101,7 @@ export default function Feed() {
                             </article>
                         ))}
                     </div>
-                </div>
+                </section>
             </main>
         </>
     );

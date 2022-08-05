@@ -1,0 +1,87 @@
+@use '../styles/base/layout' as l;
+@use '../styles/base/utils' as u;
+@use '../styles/base/button' as b;
+@use '../styles/base/text' as t;
+
+.sectionContainer {
+    @include l.sectionContainer;
+}
+
+.contentContainer {
+    @include l.contentContainer;
+    @include l.stack;
+
+    padding: u.toRem(56) 0;
+    gap: u.toRem(16);
+}
+
+.progressBar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: var(--c-blue-accent-primary);
+    transform-origin: left center;
+}
+
+.actionsWrapper {
+    @include l.stack(V, flex-start, center);
+
+    position: sticky;
+    top: u.toRem(56);
+    gap: u.toRem(16);
+}
+
+.actionButton {
+    @include b.btn;
+    @include l.stack(H, center, center);
+
+    padding: u.toRem(8);
+    border: 1px solid var(--c-outline-primary);
+    border-radius: 50%;
+    background-color: transparent;
+    transition: transform 150ms ease-in-out;
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: var(--c-blue-accent-container-primary);
+            transform: scale(1.1);
+        }
+    }
+
+    &:active {
+        transform: scale(0.98);
+    }
+
+    svg {
+        fill: var(--c-on-surface-primary);
+    }
+
+    span {
+        @include u.srOnly;
+    }
+}
+
+.articleContent {
+    @include l.stack(V);
+
+    max-width: 728px;
+    margin: 0 auto;
+    gap: u.toRem(16);
+
+    time {
+        @include t.base("S");
+
+        text-transform: uppercase;
+        color: var(--c-on-surface-secondary);
+    }
+
+    h1 {
+        @include t.heading("L");
+    }
+
+    p {
+        @include t.base("L", "regular", 150%);
+    }
+}
