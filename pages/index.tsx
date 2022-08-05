@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { Header } from '../src/components/Header';
-import styles from '../src/styles/home.module.scss';
+import s from '../src/styles/home.module.scss';
 
 export default function Home() {
   return (
@@ -9,11 +9,11 @@ export default function Home() {
         <title>Home | IgNews</title>
       </Head>
       <Header />
-      <div className={styles.container}>
-        <main className={styles.main}>
+      {/* <div className={s.container}>
+        <main className={s.main}>
           <h1>Hello bitches!</h1>
         </main>
-      </div>
+      </div> */}
     </>
   )
 }

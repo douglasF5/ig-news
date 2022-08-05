@@ -1,0 +1,45 @@
+@use '../../styles/base/layout' as l;
+@use '../../styles/base/utils' as u;
+@use '../../styles/base/text' as t;
+
+.itemWrapper {
+    @include l.stack(H, flex-start, center);
+
+    position: relative;
+    min-height: u.toRem(80);
+}
+
+.linkWrapper {
+    @include l.stack(H, flex-start, center);
+    @include t.base(M);
+
+    padding: u.toRem(8);
+    gap: u.toRem(4);
+    border-radius: 8px;
+    color: var(--c-on-surface-secondary);
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--c-blue-accent-container-primary);
+        color: var(--c-on-surface-primary);
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    &.selected {
+        color: var(--c-on-surface-primary);
+    }
+
+}
+
+.underline {
+    position: absolute;
+    height: u.toRem(3);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 3px 3px 0 0;
+    background-color: var(--c-blue-accent-primary);
+}

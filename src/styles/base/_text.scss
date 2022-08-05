@@ -20,26 +20,28 @@ $font-weights: (
 );
 
 $heading-sizes: (
-  "L": u.toRem(32),
+  "L": u.toRem(40),
   "M": u.toRem(24),
-  "S": u.toRem(20),
 );
 
-$title-sizes: (
-  "L": u.toRem(16),
-  "S": u.toRem(12),
+$subheading-sizes: (
+  "M": u.toRem(24),
 );
 
 $base-sizes: (
+  "L": u.toRem(18),
   "M": u.toRem(16),
   "S": u.toRem(14),
 );
 
-$mini-sizes: (
-  "M": u.toRem(12),
-);
-
 // TEXT STYLES
+@mixin display {
+  font-family: $font-face-secondary;
+  font-size: u.toRem(64);
+  font-weight: 700;
+  line-height: 125%;
+}
+
 @mixin heading($size, $weight: "semibold", $height: 135%) {
     font-family: $font-face-secondary;
     font-size: map-get($heading-sizes, $size);
@@ -47,7 +49,7 @@ $mini-sizes: (
     line-height: getLineHeight($height);
 }
 
-@mixin title($size, $weight: "semibold", $height: 135%) {
+@mixin subheading($size, $weight: "semibold", $height: 135%) {
     font-family: $font-face-secondary;
     font-size: map-get($title-sizes, $size);
     font-weight: map-get($font-weights, $weight);
@@ -59,10 +61,4 @@ $mini-sizes: (
   font-size: map-get($base-sizes, $size);
   font-weight: map-get($font-weights, $weight);
   line-height: getLineHeight($height);
-}
-
-@mixin mini($size, $weight: "semibold", $height: 135%) {
-    font-size: map-get($mini-sizes, $size);
-    font-weight: map-get($font-weights, $weight);
-    line-height: getLineHeight($height);
 }

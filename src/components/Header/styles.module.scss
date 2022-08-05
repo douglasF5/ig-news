@@ -9,12 +9,15 @@
 .contentContainer {
     @include l.contentContainer;
     @include l.stack(H, space-between, center);
-
-    min-height: u.toRem(60);
 }
 
 .leftWing, .rightWing  {
     @include l.stack(H, flex-start, center);
 
+    gap: u.toRem(16);
+}
+
+.menuItemsWrapper {
+    @include l.stack;
     gap: u.toRem(16);
 }
