@@ -1,5 +1,7 @@
 @use '../../styles/base/layout' as l;
 @use '../../styles/base/utils' as u;
+@use '../../styles/base/button' as b;
+@use '../../styles/base/text' as t;
 
 .sectionContainer {
     @include l.sectionContainer;
@@ -11,7 +13,13 @@
     @include l.stack(H, space-between, center);
 }
 
-.leftWing, .rightWing  {
+.leftWing  {
+    @include l.stack(H, flex-start, center);
+
+    gap: u.toRem(48);
+}
+
+.rightWing  {
     @include l.stack(H, flex-start, center);
 
     gap: u.toRem(16);
@@ -20,4 +28,41 @@
 .menuItemsWrapper {
     @include l.stack;
     gap: u.toRem(16);
+}
+
+.signInButton {
+    @include l.stack(H, flex-start, center);
+    @include b.btn;
+    @include t.base(M, "medium", "one-liner");
+
+    padding: u.toRem(8) u.toRem(14);
+    gap: u.toRem(8);
+    border-radius: 24px;
+    background-color: var(--c-blue-accent-container-primary);
+    color: var(--c-on-surface-primary);
+
+    @media (hover: hover) {
+        &:hover {
+            filter: brightness(120%);
+        }
+    }
+}
+
+.subscribeButton {
+    @include l.stack(H, flex-start, center);
+    @include b.btn;
+    @include t.base(M, "medium", "one-liner");
+
+    padding: u.toRem(8) u.toRem(14);
+    min-height: u.toRem(40);
+    gap: u.toRem(8);
+    border-radius: 24px;
+    background-color: var(--c-yellow-accent-primary);
+    color: var(--c-on-accent-primary);
+
+    @media (hover: hover) {
+        &:hover {
+            filter: brightness(96%);
+        }
+    }
 }

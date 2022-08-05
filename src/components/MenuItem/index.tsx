@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { HomeIcon, FileText, Bookmark } from '../Icons/index';
 
 //TYPE ANNOTATION
-export type MenuItemProps = {
+type MenuItemProps = {
     label: string;
     iconName: string;
     isSelected: boolean;

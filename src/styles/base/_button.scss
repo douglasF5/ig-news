@@ -1,0 +1,7 @@
+@mixin btn {
+    border: none;
+
+    &:active {
+        transform: scale(0.98);
+    }
+}

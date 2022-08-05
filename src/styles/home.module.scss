@@ -1,0 +1,106 @@
+@use '../styles/base/layout' as l;
+@use '../styles/base/utils' as u;
+@use '../styles/base/button' as b;
+@use '../styles/base/text' as t;
+
+.sectionContainer {
+    @include l.sectionContainer;
+
+    position: relative;
+    height: calc(100vh - 80px);
+    overflow: hidden;
+
+    // background-color: gray;
+}
+
+.contentContainer {
+    @include l.contentContainer;
+    @include l.stack(V, flex-start);
+
+    position: relative;
+    gap: u.toRem(24);
+    top: 45%;
+    transform: translateY(-50%);
+
+    h1 {
+        @include t.display;
+
+        max-width: 13ch;
+
+        span {
+            color: var(--c-blue-accent-primary);
+        }
+    }
+
+    p {
+        @include t.subheading("M");
+
+        max-width: 23ch;
+
+        span {
+            color: var(--c-blue-accent-primary);
+        }
+    }
+}
+
+.illustration {
+    width: 1200px;
+    position: absolute;
+    right: -80px;
+    bottom: -80px;
+}
+
+.buttonWrapper {
+    @include l.stack(H, flex-start, center);
+
+    gap: u.toRem(16);
+}
+
+.subscribeButton {
+    @include l.stack(H, flex-start, center);
+    @include b.btn;
+    @include t.base(M, "medium", "one-liner");
+
+    padding: u.toRem(8) u.toRem(16);
+    min-height: u.toRem(48);
+    gap: u.toRem(8);
+    border-radius: 24px;
+    background-color: var(--c-yellow-accent-primary);
+    color: var(--c-on-accent-primary);
+
+    @media (hover: hover) {
+        &:hover {
+            filter: brightness(96%);
+        }
+    }
+}
+
+.secondaryButton {
+    @include l.stack(H, flex-start, center);
+    @include b.btn;
+    @include t.base(M, "medium", "one-liner");
+
+    padding: u.toRem(12) u.toRem(16);
+    gap: u.toRem(8);
+    border-radius: 24px;
+    background-color: var(--c-blue-accent-container-primary);
+    color: var(--c-on-surface-primary);
+
+    @media (hover: hover) {
+        &:hover {
+            filter: brightness(120%);
+        }
+    }
+}
+
+.iconWrapper {
+    @include l.stack(H, center, center);
+
+    width: 14px;
+    transform: rotate(180deg);
+    overflow: hidden;
+
+    & > * {
+        flex-shrink: 0;
+    }
+}
