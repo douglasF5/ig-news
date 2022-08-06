@@ -2,6 +2,8 @@ import s from '../src/styles/post.module.scss';
 import { ChevronLeft, Sun, Moon, Bookmark, BookmarkFilled } from '../src/components/Icons';
 import { motion, useScroll } from 'framer-motion';
 import { useState } from 'react';
+import Tippy from '@tippyjs/react/headless';
+import { Tooltip } from '../src/components/Tooltip';
 
 export default function Post() {
     const { scrollYProgress } = useScroll();
@@ -17,21 +19,27 @@ export default function Post() {
             <motion.div className={s.progressBar} style={{ scaleX: scrollYProgress }}/>
             <section className={s.contentContainer}>
                 <div className={s.actionsWrapper}>
-                    <button className={s.actionButton}>
-                        <span>Go back</span>
-                        <ChevronLeft width={24} height={24} />
-                    </button>
-                    <button className={s.actionButton} onClick={handleSwitchTheme}>
-                        <span>Switch theme</span>
-                        {!isLightTheme
-                            ? <Sun width={24} height={24} />
-                            : <Moon width={24} height={24} />
-                        }
-                    </button>
-                    <button className={s.actionButton}>
-                        <span>Bookmark</span>
-                        <Bookmark width={24} height={24} />
-                    </button>
+                    <Tippy placement='right' render={attrs => <Tooltip {...attrs}>Go back</Tooltip>}>
+                        <button className={s.actionButton}>
+                            <span>Go back</span>
+                            <ChevronLeft width={24} height={24} />
+                        </button>
+                    </Tippy>
+                    <Tippy placement='right' render={attrs => <Tooltip {...attrs}>Switch theme</Tooltip>}>
+                        <button className={s.actionButton} onClick={handleSwitchTheme}>
+                            <span>Switch theme</span>
+                            {!isLightTheme
+                                ? <Sun width={24} height={24} />
+                                : <Moon width={24} height={24} />
+                            }
+                        </button>
+                    </Tippy>
+                    <Tippy placement='right' render={attrs => <Tooltip {...attrs}>Bookmark</Tooltip>}>
+                        <button className={s.actionButton}>
+                            <span>Bookmark</span>
+                            <Bookmark width={24} height={24} />
+                        </button>
+                    </Tippy>
                 </div>
                 <div className={s.articleContent}>
                     <time>Mar 12, 2021</time>

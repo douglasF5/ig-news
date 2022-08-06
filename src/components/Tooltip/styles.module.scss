@@ -1,0 +1,27 @@
+@use '../../styles/base/layout' as l;
+@use '../../styles/base/utils' as u;
+@use '../../styles/base/text' as t;
+
+
+.tooltipWrapper {
+    @include t.base("M", "regular", "one-liner");
+    position: relative;
+    padding: u.toRem(8) u.toRem(8);
+    left: 8px;
+    border-radius: 4px;
+    background-color: var(--c-tooltip-container);
+    color: var(--c-on-surface-primary);
+    
+    &::before {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: -6px;
+        transform: translateY(79%);
+        width: 0;
+        height: 0;
+        border-top: 6px solid transparent;
+        border-bottom: 6px solid transparent;
+        border-right:6px solid var(--c-tooltip-container);
+    }
+}
