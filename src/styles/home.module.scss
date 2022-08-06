@@ -7,7 +7,7 @@
     @include l.sectionContainer;
 
     position: relative;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 60px);
     overflow: hidden;
 }
 
@@ -31,7 +31,7 @@
     }
 
     p {
-        @include t.subheading("M");
+        @include t.subheading("M", "regular");
 
         max-width: 23ch;
 

@@ -43,7 +43,7 @@ export const Header = () => {
             <div className={s.contentContainer}>
                 <div className={s.leftWing}>
                     <Image src={Logo} alt='IgNews'/>
-                    <div className={s.menuItemsWrapper}>
+                    <nav className={s.menuItemsWrapper}>
                         {menuItems.map(({ label, iconName, isVisible, url }: MenuItemData, idx) => (isVisible &&
                                 <MenuItem
                                     key={idx}
@@ -55,11 +55,11 @@ export const Header = () => {
                                 />
                             ))
                         }
-                    </div>
+                    </nav>
                 </div>
                 <div className={s.rightWing}>
                     <button className={s.signInButton}>
-                        {<Github color='var(--c-yellow-accent-primary)' width={24} height={24} />}
+                        {<Github color='var(--c-yellow-accent-primary)' width={20} height={20} />}
                         Sign in
                     </button>
                     <button className={s.subscribeButton}>Subscribe now</button>

@@ -2,6 +2,7 @@ import s from '../src/styles/feed.module.scss';
 import { Header } from "../src/components/Header";
 import { Filter, X, Bookmark, BookmarkFilled } from '../src/components/Icons';
 import { useState } from 'react';
+import Head from 'next/head';
 
 export default function Feed() {
     const postsData = [
@@ -56,6 +57,9 @@ export default function Feed() {
     //RETURNING STATEMENT
     return (
         <>
+            <Head>
+                <title>Feed | IgNews</title>
+            </Head>
             <Header />
             <main className={s.sectionContainer}>
                 <section className={s.contentContainer}>

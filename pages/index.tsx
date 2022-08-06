@@ -1,5 +1,5 @@
 import s from '../src/styles/home.module.scss';
-import Head from 'next/head'
+import Head from 'next/head';
 import Image from 'next/image';
 import Illustration from '../public/illustration.svg';
 import { Header } from '../src/components/Header';
