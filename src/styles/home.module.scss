@@ -42,7 +42,7 @@
 }
 
 .illustration {
-    width: 1200px;
+    width: max(75vw, 1200px);
     position: absolute;
     right: -80px;
     bottom: -80px;
@@ -52,25 +52,6 @@
     @include l.stack(H, flex-start, center);
 
     gap: u.toRem(16);
-}
-
-.subscribeButton {
-    @include l.stack(H, flex-start, center);
-    @include b.btn;
-    @include t.base(M, "medium", "one-liner");
-
-    padding: u.toRem(8) u.toRem(16);
-    min-height: u.toRem(48);
-    gap: u.toRem(8);
-    border-radius: 24px;
-    background-color: var(--c-yellow-accent-primary);
-    color: var(--c-on-accent-primary);
-
-    @media (hover: hover) {
-        &:hover {
-            filter: brightness(96%);
-        }
-    }
 }
 
 .secondaryButton {

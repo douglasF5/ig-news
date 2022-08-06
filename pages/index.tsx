@@ -1,11 +1,21 @@
+import { GetStaticProps } from 'next';
 import s from '../src/styles/home.module.scss';
 import Head from 'next/head';
 import Image from 'next/image';
 import Illustration from '../public/illustration.svg';
 import { Header } from '../src/components/Header';
 import { ChevronLeft } from '../src/components/Icons';
+import { stripe } from '../src/services/stripe';
+import { SubscribeButton } from '../src/components/SubscribeButton';
 
-export default function Home() {
+interface HomeProps {
+    product: {
+        priceId: string;
+        amount: number;
+    }
+}
+
+export default function Home({ product }: HomeProps) {
     return (
         <>
             <Head>
@@ -22,12 +32,10 @@ export default function Home() {
                     </h1>
                     <p>
                         Get acess to all publications{" "}
-                        <span>for $9,90 month</span>
+                        <span>for {product.amount} month</span>
                     </p>
                     <div className={s.buttonWrapper}>
-                        <button className={s.subscribeButton}>
-                            Subscribe now
-                        </button>
+                        <SubscribeButton size='LG' priceId={product.priceId}/>
                         <button className={s.secondaryButton}>
                             Check out the feed
                             <span className={s.iconWrapper}>
@@ -43,4 +51,23 @@ export default function Home() {
             </main>
         </>
     );
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+    const price = await stripe.prices.retrieve('price_1LTaTnCsLPrcC2xqi2OSOSZO');
+
+    const product = {
+        priceId: price.id,
+        amount: new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD'
+        }).format((price.unit_amount / 100)),
+    }
+
+    return {
+        props: {
+            product
+        },
+        revalidate: 60 * 60 * 24, //24 hours
+    }
 }

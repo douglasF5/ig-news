@@ -4,6 +4,7 @@ import Image from "next/image";
 import Logo from '../../../public/logo.svg';
 import { Github } from '../Icons';
 import { useState } from 'react';
+import { SubscribeButton } from '../SubscribeButton';
 
 //TYPE ANNOTATION
 type MenuItemData = {
@@ -37,7 +38,7 @@ export const Header = () => {
         },
     ];
 
-    //RETURNING STATEMENT
+    //RETURN STATEMENT
     return (
         <header className={s.sectionContainer}>
             <div className={s.contentContainer}>
@@ -62,7 +63,7 @@ export const Header = () => {
                         {<Github color='var(--c-yellow-accent-primary)' width={20} height={20} />}
                         Sign in
                     </button>
-                    <button className={s.subscribeButton}>Subscribe now</button>
+                    <SubscribeButton size='SM' />
                 </div>
             </div>
         </header>
