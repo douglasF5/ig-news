@@ -16,12 +16,12 @@
         position: absolute;
         content: '';
         top: 0;
-        left: -6px;
-        transform: translateY(79%);
+        left: -5px;
+        transform: translateY(105%);
         width: 0;
         height: 0;
-        border-top: 6px solid transparent;
-        border-bottom: 6px solid transparent;
-        border-right:6px solid var(--c-tooltip-container);
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-right:5px solid var(--c-tooltip-container);
     }
 }

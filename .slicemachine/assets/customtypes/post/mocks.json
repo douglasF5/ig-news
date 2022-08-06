@@ -1,0 +1,23 @@
+{
+  "id": "mock-doc-id",
+  "url": null,
+  "type": "post",
+  "href": null,
+  "tags": [],
+  "first_publication_date": "1970-01-01T00:00:01+0000",
+  "last_publication_date": "1970-01-01T00:00:01+0000",
+  "slugs": [],
+  "linked_documents": [],
+  "lang": "en-us",
+  "alternate_languages": [],
+  "data": {
+    "title": "climb",
+    "postcontent": [
+      {
+        "type": "paragraph",
+        "text": "Mollit ipsum deserunt ad. Incididunt nisi adipisicing laborum exercitation non magna fugiat fugiat ut consectetur. Est laboris veniam irure est sunt consequat irure enim laboris.",
+        "spans": []
+      }
+    ]
+  }
+}
