@@ -29,21 +29,3 @@
     @include l.stack;
     gap: u.toRem(16);
 }
-
-.signInButton {
-    @include l.stack(H, flex-start, center);
-    @include b.btn;
-    @include t.base(M, "medium", "one-liner");
-
-    padding: u.toRem(8) u.toRem(14);
-    gap: u.toRem(8);
-    border-radius: 24px;
-    background-color: var(--c-blue-accent-container-primary);
-    color: var(--c-on-surface-primary);
-
-    @media (hover: hover) {
-        &:hover {
-            filter: brightness(120%);
-        }
-    }
-}

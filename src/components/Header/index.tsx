@@ -2,9 +2,9 @@ import { MenuItem } from '../MenuItem';
 import s from './styles.module.scss';
 import Image from "next/image";
 import Logo from '../../../public/logo.svg';
-import { Github } from '../Icons';
 import { useState } from 'react';
 import { SubscribeButton } from '../SubscribeButton';
+import { SignInButton } from '../SignInButton';
 
 //TYPE ANNOTATION
 type MenuItemData = {
@@ -59,11 +59,8 @@ export const Header = () => {
                     </nav>
                 </div>
                 <div className={s.rightWing}>
-                    <button className={s.signInButton}>
-                        {<Github color='var(--c-yellow-accent-primary)' width={20} height={20} />}
-                        Sign in
-                    </button>
-                    <SubscribeButton size='SM' />
+                    <SignInButton />
+                    <SubscribeButton size='SM' dynamic={true} />
                 </div>
             </div>
         </header>

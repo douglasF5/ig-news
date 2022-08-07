@@ -1,0 +1,64 @@
+@use '../../styles/base/layout' as l;
+@use '../../styles/base/utils' as u;
+@use '../../styles/base/button' as b;
+@use '../../styles/base/text' as t;
+
+.signInButton {
+    @include l.stack(H, flex-start, center);
+    @include b.btn;
+    @include t.base(M, "medium", "one-liner");
+
+    padding: u.toRem(8) u.toRem(14);
+    gap: u.toRem(8);
+    border-radius: 24px;
+    background-color: var(--c-blue-accent-container-primary);
+    color: var(--c-on-surface-primary);
+
+    @media (hover: hover) {
+        &:hover {
+            filter: brightness(120%);
+        }
+    }
+}
+
+.loggedInIndicatorWrapper {
+    @include l.stack(H, flex-start, center);
+
+    padding: u.toRem(4) u.toRem(14);
+    gap: u.toRem(8);
+    border-radius: 24px;
+    background-color: var(--c-blue-accent-container-primary);
+    color: var(--c-on-surface-primary);
+
+    p {
+        @include t.base(M, "medium", "one-liner");
+    }
+}
+
+.imageWrapper {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.signOutButton {
+    @include b.btn;
+    @include l.stack(H, center, center);
+
+    padding: u.toRem(4);
+    border-radius: 50%;
+    background-color: transparent;
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: var(--c-over-surface-primary);
+        }
+    }
+
+    span {
+        @include u.srOnly;
+    }
+}

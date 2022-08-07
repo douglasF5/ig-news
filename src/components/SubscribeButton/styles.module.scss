@@ -13,13 +13,13 @@
     color: var(--c-on-accent-primary);
 
     &.SM {
-        padding: u.toRem(8) u.toRem(14);
+        padding: u.toRem(10) u.toRem(14);
         gap: u.toRem(8);
     }
 
     &.LG {
         padding: u.toRem(8) u.toRem(16);
-    min-height: u.toRem(48);
+        min-height: u.toRem(48);
     }
 
     @media (hover: hover) {
@@ -27,4 +27,14 @@
             filter: brightness(96%);
         }
     }
+}
+
+.subscribedIndicatorWrapper {
+    @include l.stack(H, flex-start, center);
+    @include t.base(M, "medium", "one-liner");
+
+    padding: u.toRem(10) u.toRem(18);
+    border-radius: 8px;
+    background-color: var(--c-blue-accent-container-primary);
+    color: var(--c-green-accent-primary);
 }
