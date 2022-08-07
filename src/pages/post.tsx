@@ -1,9 +1,9 @@
-import s from '../src/styles/post.module.scss';
-import { ChevronLeft, Sun, Moon, Bookmark, BookmarkFilled } from '../src/components/Icons';
+import s from '../styles/post.module.scss';
+import { ChevronLeft, Sun, Moon, Bookmark, BookmarkFilled } from '../components/Icons';
 import { motion, useScroll } from 'framer-motion';
 import { useState } from 'react';
 import Tippy from '@tippyjs/react/headless';
-import { Tooltip } from '../src/components/Tooltip';
+import { Tooltip } from '../components/Tooltip';
 
 export default function Post() {
     const { scrollYProgress } = useScroll();

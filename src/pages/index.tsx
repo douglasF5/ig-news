@@ -1,12 +1,12 @@
 import { GetStaticProps } from 'next';
-import s from '../src/styles/home.module.scss';
+import s from '../styles/home.module.scss';
 import Head from 'next/head';
 import Image from 'next/image';
-import Illustration from '../public/illustration.svg';
-import { Header } from '../src/components/Header';
-import { ChevronLeft } from '../src/components/Icons';
-import { stripe } from '../src/services/stripe';
-import { SubscribeButton } from '../src/components/SubscribeButton';
+import Illustration from '../../public/illustration.svg';
+import { Header } from '../components/Header';
+import { ChevronLeft } from '../components/Icons';
+import { stripe } from '../services/stripe';
+import { SubscribeButton } from '../components/SubscribeButton';
 
 interface HomeProps {
     product: {

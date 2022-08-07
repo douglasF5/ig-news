@@ -1,6 +1,6 @@
-import s from '../src/styles/feed.module.scss';
-import { Header } from "../src/components/Header";
-import { Filter, X, Bookmark, BookmarkFilled } from '../src/components/Icons';
+import s from '../styles/feed.module.scss';
+import { Header } from "../components/Header";
+import { Filter, X, Bookmark, BookmarkFilled } from '../components/Icons';
 import { useState } from 'react';
 import Head from 'next/head';
 

@@ -1,5 +1,5 @@
 import { AppProps } from 'next/app';
-import '../src/styles/globals.scss';
+import '../styles/globals.scss';
 import Head from 'next/head';
 import { SessionProvider as NextAuthProvider } from 'next-auth/react';
 
