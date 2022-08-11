@@ -6,8 +6,6 @@ import Image from 'next/image';
 export const SignInButton = () => {
     const {data: session} = useSession();
 
-    console.log(session);
-
     return !session ? (
         <button className={s.signInButton} onClick={() => signIn('github')}>
             {<Github color='var(--c-yellow-accent-primary)' width={20} height={20} />}
