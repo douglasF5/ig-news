@@ -1,4 +1,6 @@
 import { useSession, signIn } from 'next-auth/react';
+import { api } from '../../services/api';
+import { getStripeJs } from '../../services/stripe-js';
 import s from './styles.module.scss';
 
 //TYPE ANNOTATION
@@ -16,13 +18,20 @@ export const SubscribeButton = ({ size, priceId, dynamic=false }: SubscribeButto
     const isSubscribed = false;
 
     //EVENT HANDLERS
-    function handleSubscribe() {
+    async function handleSubscribe() {
         if(!session) {
             signIn('github');
             return;
         }
 
-        //start checkout session
+        try {
+            const response = await api.post('/subscribe');
+            const { sessionId } = response.data;
+            const stripe = await getStripeJs();
+            await stripe.redirectToCheckout({ sessionId });
+        } catch(err) {
+            alert(err.message);
+        }
     }
 
     //RETURN STATEMENT
