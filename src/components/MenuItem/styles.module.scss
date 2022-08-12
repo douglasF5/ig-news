@@ -1,6 +1,6 @@
-@use '../../styles/base/layout' as l;
-@use '../../styles/base/utils' as u;
-@use '../../styles/base/text' as t;
+@use "../../styles/base/layout" as l;
+@use "../../styles/base/utils" as u;
+@use "../../styles/base/text" as t;
 
 .itemWrapper {
     @include l.stack(H, flex-start, center);
@@ -52,15 +52,14 @@
             fill: var(--c-on-surface-primary);
         }
     }
-
 }
 
 .underline {
     position: absolute;
-    height: u.toRem(3);
+    height: u.toRem(2);
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: 3px 3px 0 0;
+    border-radius: 2px 2px 0 0;
     background-color: var(--c-blue-accent-primary);
 }

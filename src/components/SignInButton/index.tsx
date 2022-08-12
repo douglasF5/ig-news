@@ -8,7 +8,7 @@ export const SignInButton = () => {
 
     return !session ? (
         <button className={s.signInButton} onClick={() => signIn('github')}>
-            {<Github color='var(--c-yellow-accent-primary)' width={20} height={20} />}
+            {<Github color='var(--c-yellow-accent-primary)' width={18} height={18} />}
             Sign in
         </button>
     ) : (

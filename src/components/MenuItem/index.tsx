@@ -15,7 +15,7 @@ export const MenuItem = ({ label, iconName, isSelected, url, handleClick }: Menu
     //ICONS
     const i = {
         color: `var(--c-on-surface-${isSelected ? 'primary' : 'secondary'})`,
-        size: 20,
+        size: 18,
     } 
     const icon = {
         'home': <HomeIcon color={i.color} width={i.size} height={i.size} />,

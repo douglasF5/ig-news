@@ -1,7 +1,7 @@
-@use '../../styles/base/layout' as l;
-@use '../../styles/base/utils' as u;
-@use '../../styles/base/button' as b;
-@use '../../styles/base/text' as t;
+@use "../../styles/base/layout" as l;
+@use "../../styles/base/utils" as u;
+@use "../../styles/base/button" as b;
+@use "../../styles/base/text" as t;
 
 .subscribeButton {
     @include l.stack(H, flex-start, center);
@@ -13,7 +13,7 @@
     color: var(--c-on-accent-primary);
 
     &.SM {
-        padding: u.toRem(10) u.toRem(14);
+        padding: u.toRem(8) u.toRem(14);
         gap: u.toRem(8);
     }
 
