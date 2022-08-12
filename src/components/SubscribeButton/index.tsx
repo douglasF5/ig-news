@@ -26,7 +26,7 @@ export const SubscribeButton = ({ size, priceId, dynamic=false }: SubscribeButto
 
         try {
             const response = await api.post('/subscribe');
-            const { sessionId } = response.data;
+            const { sessionId } = await response.data;
             const stripe = await getStripeJs();
             await stripe.redirectToCheckout({ sessionId });
         } catch(err) {
