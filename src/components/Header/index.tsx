@@ -12,7 +12,7 @@ type MenuItemData = {
     iconName: string;
     url: string;
     isVisible: boolean;
-}
+};
 
 //EXPORTING COMPONENT
 export const Header = () => {
@@ -32,35 +32,35 @@ export const Header = () => {
         },
         {
             label: 'Bookmarks',
-            iconName: 'bookmarks',
-            isVisible: false,
+            iconName: 'bookmark',
+            isVisible: true,
             url: ''
         },
     ];
 
     //RETURN STATEMENT
     return (
-        <header className={s.sectionContainer}>
-            <div className={s.contentContainer}>
-                <div className={s.leftWing}>
-                    <Image src={Logo} alt='IgNews'/>
-                    <nav className={s.menuItemsWrapper}>
-                        {menuItems.map(({ label, iconName, isVisible, url }: MenuItemData, idx) => (isVisible &&
-                                <MenuItem
-                                    key={idx}
-                                    label={label}
-                                    iconName={iconName}
-                                    isSelected={selectedItem === idx}
-                                    url={url}
-                                    handleClick={() => setSelectedItem(idx)}
-                                />
-                            ))
+        <header className={ s.sectionContainer }>
+            <div className={ s.contentContainer }>
+                <div className={ s.leftWing }>
+                    <Image src={ Logo } alt='IgNews' />
+                    <nav className={ s.menuItemsWrapper }>
+                        { menuItems.map(({ label, iconName, isVisible, url }: MenuItemData, idx) => (isVisible &&
+                            <MenuItem
+                                key={ idx }
+                                label={ label }
+                                iconName={ iconName }
+                                isSelected={ selectedItem === idx }
+                                url={ url }
+                                handleClick={ () => setSelectedItem(idx) }
+                            />
+                        ))
                         }
                     </nav>
                 </div>
-                <div className={s.rightWing}>
+                <div className={ s.rightWing }>
                     <SignInButton />
-                    <SubscribeButton size='SM' dynamic={true} />
+                    <SubscribeButton size='SM' dynamic={ true } />
                 </div>
             </div>
         </header>
