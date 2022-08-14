@@ -17,7 +17,7 @@
     gap: u.toRem(16);
 }
 
-.progressBar{
+.progressBar {
     position: fixed;
     top: 0;
     left: 0;
@@ -33,6 +33,10 @@
     position: sticky;
     top: u.toRem(56);
     gap: u.toRem(16);
+}
+
+.tooltipWrapper {
+    border-radius: 50%;
 }
 
 .actionButton {
@@ -65,7 +69,7 @@
     }
 }
 
-.articleContent {
+.articleWrapper {
     @include l.stack(V);
 
     max-width: 728px;
@@ -81,11 +85,57 @@
 
     h1 {
         @include t.heading("L");
-        color: var(--c-on-surface-primary);;
+        color: var(--c-on-surface-primary);
+        ;
+    }
+}
+
+.articleContent {
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: u.toRem(24) 0 u.toRem(8) 0;
+        color: var(--c-on-surface-primary);
+    }
+
+    h2,
+    h3 {
+        @include t.subheading("M");
+    }
+
+    a {
+        color: var(--c-blue-accent-primary);
+    }
+
+    ul,
+    ol {
+        margin: 0 0 u.toRem(16) u.toRem(24);
+        color: var(--c-on-surface-primary);
+    }
+
+    li {
+        @include t.base("L", "regular", 160%);
+        margin: 0 0 u.toRem(8) 0;
     }
 
     p {
         @include t.base("L", "regular", 160%);
-        color: var(--c-on-surface-primary);;
+        margin-bottom: u.toRem(8);
+        color: var(--c-on-surface-primary);
+    }
+
+    pre {
+        padding: u.toRem(16);
+        margin: u.toRem(16) 0;
+        border-radius: 8px;
+        background-color: rgba(128, 128, 128, 0.20);
+        font-family: monospace;
+        font-size: u.toRem(18);
+        font-weight: 400;
+        line-height: 180%;
+        color: var(--c-on-surface-primary);
     }
 }

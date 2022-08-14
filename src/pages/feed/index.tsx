@@ -1,4 +1,5 @@
 import s from './styles.module.scss';
+import Link from 'next/link';
 import { Header } from "../../components/Header";
 import { Filter, X, Bookmark, BookmarkFilled } from '../../components/Icons';
 import { useState } from 'react';
@@ -12,7 +13,7 @@ type Post = {
     title: string;
     preview: string;
     updatedAt: string;
-}
+};
 
 interface PostsProps {
     posts: Post[];
@@ -27,7 +28,7 @@ export default function Feed({ posts }: PostsProps) {
     }
 
     function handleBookmark(postKey: string) {
-        if(bookmarkedPosts.includes(postKey)) {
+        if (bookmarkedPosts.includes(postKey)) {
             let newList = bookmarkedPosts.filter(idx => idx !== postKey);
             setBookmarkedPosts(newList);
         } else {
@@ -58,19 +59,21 @@ export default function Feed({ posts }: PostsProps) {
                             {inputContent && (
                                 <button className={s.clearButton} onClick={handleClearField}>
                                     <span>Clear filter</span>
-                                    <X color='var(--c-on-surface-primary)' width={24} height={24}/>
+                                    <X color='var(--c-on-surface-primary)' width={24} height={24} />
                                 </button>
                             )}
                         </div>
                     </div>
                     <div className={s.postsList}>
-                        {posts.map(({title, updatedAt, preview, slug}) => (
-                            <article key={slug} className={s.postWrapper}>
-                                <div className={s.leftWing}>
-                                    <time>{updatedAt}</time>
-                                    <h2>{title}</h2>
-                                    <p>{preview}</p>
-                                </div>
+                        {posts.map(({ title, updatedAt, preview, slug }) => (
+                            <article className={s.postWrapper} key={slug}>
+                                <Link href={`/feed/${slug}`}>
+                                    <div className={s.leftWing}>
+                                        <time>{updatedAt}</time>
+                                        <h2>{title}</h2>
+                                        <p>{preview}</p>
+                                    </div>
+                                </Link>
                                 <button className={s.bookmarkButton} onClick={() => handleBookmark(slug)}>
                                     <span>Bookmark post</span>
                                     {bookmarkedPosts.includes(slug)
@@ -81,7 +84,7 @@ export default function Feed({ posts }: PostsProps) {
                                                 height={20}
                                             />
                                         )
-                                        : <Bookmark width={20} height={20}/>
+                                        : <Bookmark width={20} height={20} />
                                     }
                                 </button>
                             </article>
@@ -101,7 +104,7 @@ export const getStaticProps: GetStaticProps = async () => {
         pageSize: 100
     });
 
-    const posts =  response.results.map(post => {
+    const posts = response.results.map(post => {
         return {
             slug: post.uid,
             title: post.data.title,
@@ -111,12 +114,12 @@ export const getStaticProps: GetStaticProps = async () => {
                 month: 'short',
                 year: 'numeric'
             })
-        }
+        };
     });
 
     // console.log(JSON.stringify(response, null, 2));
 
     return {
         props: { posts },
-    }
+    };
 };
