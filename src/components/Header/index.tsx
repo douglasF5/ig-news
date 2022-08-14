@@ -2,7 +2,6 @@ import { MenuItem } from '../MenuItem';
 import s from './styles.module.scss';
 import Image from "next/image";
 import Logo from '../../../public/logo.svg';
-import { useState } from 'react';
 import { SubscribeButton } from '../SubscribeButton';
 import { SignInButton } from '../SignInButton';
 
@@ -10,57 +9,54 @@ import { SignInButton } from '../SignInButton';
 type MenuItemData = {
     label: string;
     iconName: string;
-    url: string;
+    href: string;
     isVisible: boolean;
 };
 
 //EXPORTING COMPONENT
 export const Header = () => {
-    const [selectedItem, setSelectedItem] = useState(0);
     const menuItems: Array<MenuItemData> = [
         {
             label: 'Home',
             iconName: 'home',
             isVisible: true,
-            url: ''
+            href: '/'
         },
         {
             label: 'Feed',
             iconName: 'feed',
             isVisible: true,
-            url: ''
+            href: '/feed'
         },
         {
             label: 'Bookmarks',
             iconName: 'bookmark',
             isVisible: true,
-            url: ''
+            href: '/bookmarks'
         },
     ];
 
     //RETURN STATEMENT
     return (
-        <header className={ s.sectionContainer }>
-            <div className={ s.contentContainer }>
-                <div className={ s.leftWing }>
-                    <Image src={ Logo } alt='IgNews' />
-                    <nav className={ s.menuItemsWrapper }>
-                        { menuItems.map(({ label, iconName, isVisible, url }: MenuItemData, idx) => (isVisible &&
+        <header className={s.sectionContainer}>
+            <div className={s.contentContainer}>
+                <div className={s.leftWing}>
+                    <Image src={Logo} alt='IgNews' />
+                    <nav className={s.menuItemsWrapper}>
+                        {menuItems.map(({ label, iconName, isVisible, href }: MenuItemData) => (isVisible &&
                             <MenuItem
-                                key={ idx }
-                                label={ label }
-                                iconName={ iconName }
-                                isSelected={ selectedItem === idx }
-                                url={ url }
-                                handleClick={ () => setSelectedItem(idx) }
+                                key={label}
+                                label={label}
+                                iconName={iconName}
+                                href={href}
                             />
                         ))
                         }
                     </nav>
                 </div>
-                <div className={ s.rightWing }>
+                <div className={s.rightWing}>
                     <SignInButton />
-                    <SubscribeButton size='SM' dynamic={ true } />
+                    <SubscribeButton size='SM' dynamic={true} />
                 </div>
             </div>
         </header>

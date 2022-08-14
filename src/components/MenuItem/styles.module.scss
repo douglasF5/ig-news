@@ -18,11 +18,12 @@
     border-radius: 8px;
     color: var(--c-on-surface-secondary);
     cursor: pointer;
+    text-decoration: none;
     transition-property: background-color, color, fill;
     transition-duration: 100ms;
     transition-timing-function: ease-in-out;
 
-    & > svg {
+    &>svg {
         fill: var(--c-on-surface-secondary);
     }
 
@@ -31,7 +32,7 @@
             background-color: var(--c-blue-accent-container-primary);
             color: var(--c-on-surface-primary);
 
-            & > svg {
+            &>svg {
                 fill: var(--c-on-surface-primary);
             }
         }
