@@ -43,7 +43,7 @@ export const Header = () => {
             <div className={s.contentContainer}>
                 <div className={s.leftWing}>
                     <Link href='/'>
-                        <a>
+                        <a className={s.logoLink}>
                             <Image src={Logo} alt='IgNews' />
                         </a>
                     </Link>

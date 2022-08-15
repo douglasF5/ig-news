@@ -2,7 +2,7 @@ import s from './styles.module.scss';
 import Link from 'next/link';
 import { Header } from "../../components/Header";
 import { Filter, X, Bookmark, BookmarkFilled } from '../../components/Icons';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { GetStaticProps } from 'next';
 import { getPrismicClient } from '../../services/prismic';
@@ -21,6 +21,7 @@ interface PostsProps {
 }
 
 export default function Feed({ posts }: PostsProps) {
+    const [filteredPosts, setFilteredPosts] = useState<Post[]>(posts);
     const [inputContent, setInputContent] = useState('');
     const [bookmarkedPosts, setBookmarkedPosts] = useState<string[]>([]);
 
@@ -37,6 +38,18 @@ export default function Feed({ posts }: PostsProps) {
         }
 
     }
+
+    useEffect(() => {
+        if (inputContent) {
+            setFilteredPosts(prev => {
+                return prev.filter(term => {
+                    return term.title.toLowerCase().includes(inputContent.toLowerCase());
+                });
+            });
+        } else {
+            setFilteredPosts(posts);
+        }
+    }, [inputContent, posts]);
 
     //RETURNING STATEMENT
     return (
@@ -55,7 +68,7 @@ export default function Feed({ posts }: PostsProps) {
                                 type='text'
                                 placeholder='Type to filter'
                                 value={inputContent}
-                                onChange={(e) => setInputContent(e.target.value)}
+                                onChange={e => setInputContent(e.target.value)}
                             />
                             {inputContent && (
                                 <button className={s.clearButton} onClick={handleClearField}>
@@ -66,7 +79,7 @@ export default function Feed({ posts }: PostsProps) {
                         </div>
                     </div>
                     <div className={s.postsList}>
-                        {posts.map(({ title, updatedAt, updatedAtDisplay, preview, slug }) => (
+                        {filteredPosts.map(({ title, updatedAt, updatedAtDisplay, preview, slug }) => (
                             <article className={s.postWrapper} key={slug}>
                                 <Link href={`/feed/${slug}`}>
                                     <div className={s.leftWing}>

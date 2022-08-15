@@ -5,7 +5,7 @@
 
 .sectionContainer {
     @include l.sectionContainer;
-    border-bottom: 1px solid var(--c-outline-primary); 
+    border-bottom: 1px solid var(--c-outline-primary);
 }
 
 .contentContainer {
@@ -13,13 +13,22 @@
     @include l.stack(H, space-between, center);
 }
 
-.leftWing  {
+.leftWing {
     @include l.stack(H, flex-start, center);
 
     gap: u.toRem(48);
+
+    .logoLink {
+        line-height: 0;
+    }
+
+    img {
+        pointer-events: none;
+        margin: 0;
+    }
 }
 
-.rightWing  {
+.rightWing {
     @include l.stack(H, flex-start, center);
 
     gap: u.toRem(16);
