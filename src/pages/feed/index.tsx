@@ -12,6 +12,7 @@ type Post = {
     slug: string;
     title: string;
     preview: string;
+    updatedAtDisplay: string;
     updatedAt: string;
 };
 
@@ -65,11 +66,11 @@ export default function Feed({ posts }: PostsProps) {
                         </div>
                     </div>
                     <div className={s.postsList}>
-                        {posts.map(({ title, updatedAt, preview, slug }) => (
+                        {posts.map(({ title, updatedAt, updatedAtDisplay, preview, slug }) => (
                             <article className={s.postWrapper} key={slug}>
                                 <Link href={`/feed/${slug}`}>
                                     <div className={s.leftWing}>
-                                        <time>{updatedAt}</time>
+                                        <time dateTime={updatedAt}>{updatedAtDisplay}</time>
                                         <h2>{title}</h2>
                                         <p>{preview}</p>
                                     </div>
@@ -109,11 +110,12 @@ export const getStaticProps: GetStaticProps = async () => {
             slug: post.uid,
             title: post.data.title,
             preview: post.data.postcontent.find(content => content.type === 'paragraph')?.text ?? '',
-            updatedAt: new Date(post.last_publication_date).toLocaleDateString('en-US', {
+            updatedAtDisplay: new Date(post.last_publication_date).toLocaleDateString('en-US', {
                 day: '2-digit',
                 month: 'short',
                 year: 'numeric'
-            })
+            }),
+            updatedAt: post.last_publication_date
         };
     });
 

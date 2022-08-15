@@ -18,6 +18,7 @@ interface PostPreviewProps {
         slug: string;
         title: string;
         content: string;
+        updatedAtDisplay: string;
         updatedAt: string;
     };
 }
@@ -74,7 +75,7 @@ export default function PostPreview({ post }: PostPreviewProps) {
                         </Tippy>
                     </div>
                     <article className={s.articleWrapper}>
-                        <time>{post.updatedAt}</time>
+                        <time dateTime={post.updatedAt}>{post.updatedAtDisplay}</time>
                         <h1>{post.title}</h1>
                         <div className={s.articleContent} dangerouslySetInnerHTML={{ __html: post.content }} />
                         <footer className={s.paywallMessageWrapper}>
@@ -108,11 +109,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         slug,
         title: response.data.title,
         content: asHTML(response.data.postcontent.splice(0, 4)),
-        updatedAt: new Date(response.last_publication_date).toLocaleDateString('en-US', {
+        updatedAtDisplay: new Date(response.last_publication_date).toLocaleDateString('en-US', {
             day: '2-digit',
             month: 'short',
             year: 'numeric'
-        })
+        }),
+        updatedAt: response.last_publication_date
     };
 
     return {

@@ -17,6 +17,7 @@ interface PostProps {
         slug: string;
         title: string;
         content: string;
+        updatedAtDisplay: string;
         updatedAt: string;
     };
 }
@@ -67,7 +68,7 @@ export default function Post({ post }: PostProps) {
                         </Tippy>
                     </div>
                     <article className={s.articleWrapper}>
-                        <time>{post.updatedAt}</time>
+                        <time dateTime={post.updatedAt}>{post.updatedAtDisplay}</time>
                         <h1>{post.title}</h1>
                         <div className={s.articleContent} dangerouslySetInnerHTML={{ __html: post.content }} />
                     </article>
@@ -98,11 +99,12 @@ export const getServerSideProps: GetServerSideProps = async ({ req, params }) =>
         slug,
         title: response.data.title,
         content: asHTML(response.data.postcontent),
-        updatedAt: new Date(response.last_publication_date).toLocaleDateString('en-US', {
+        updatedAtDisplay: new Date(response.last_publication_date).toLocaleDateString('en-US', {
             day: '2-digit',
             month: 'short',
             year: 'numeric'
-        })
+        }),
+        updatedAt: response.last_publication_date
     };
 
     return {
