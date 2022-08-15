@@ -4,25 +4,31 @@
 @use './base/colors' as c;
 
 :root {
+
     // SETTING COMMON COLOR CUSTOM PROPERTIES
-    @each $color, $value in c.$common-colors {
+    @each $color,
+    $value in c.$common-colors {
         --c-#{$color}: #{$value};
     }
 }
 
 body {
+
     // SETTING UP THEMABLE COLOR CUSTOM PROPERTIES
-    @each $color, $theme in c.$theme-colors {
+    @each $color,
+    $theme in c.$theme-colors {
         --c-#{$color}: #{map-get($theme, "dark")};
     }
-    
+
     font-family: t.$font-face-primary;
     color: var(--c-on-surface-primary);
     background-color: var(--c-surface-primary);
 }
 
 main.lightTheme {
-    @each $color, $theme in c.$theme-colors {
+
+    @each $color,
+    $theme in c.$theme-colors {
         --c-#{$color}: #{map-get($theme, "light")};
     }
 }
@@ -30,4 +36,3 @@ main.lightTheme {
 h1.pageTitle {
     @include u.srOnly;
 }
-

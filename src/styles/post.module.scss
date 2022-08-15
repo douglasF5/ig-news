@@ -7,6 +7,7 @@
     @include l.sectionContainer;
 
     background-color: var(--c-surface-primary);
+    height: 100vh;
 }
 
 .contentContainer {
@@ -72,6 +73,7 @@
 .articleWrapper {
     @include l.stack(V);
 
+    position: relative;
     max-width: 728px;
     margin: 0 auto;
     gap: u.toRem(16);
@@ -136,6 +138,30 @@
         font-size: u.toRem(18);
         font-weight: 400;
         line-height: 180%;
+        color: var(--c-on-surface-primary);
+    }
+}
+
+.paywallMessageWrapper {
+    position: absolute;
+    padding-top: 100px;
+    top: 80%;
+    width: 100%;
+    background-image: linear-gradient(180deg, rgba(18, 20, 20, 0) 0%, var(--c-surface-primary) 50%);
+
+    main.lightTheme & {
+        background-image: linear-gradient(180deg, rgba(219, 217, 214, 0) 0%, var(--c-surface-primary) 30%);
+    }
+}
+
+.paywallMessage {
+    @include l.stack(H, space-between, center);
+
+    padding: u.toRem(24);
+    border-radius: 8px;
+    background-color: var(--c-blue-accent-container-primary);
+
+    h3 {
         color: var(--c-on-surface-primary);
     }
 }

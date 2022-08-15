@@ -4,6 +4,7 @@ import Image from "next/image";
 import Logo from '../../../public/logo.svg';
 import { SubscribeButton } from '../SubscribeButton';
 import { SignInButton } from '../SignInButton';
+import Link from 'next/link';
 
 //TYPE ANNOTATION
 type MenuItemData = {
@@ -41,7 +42,11 @@ export const Header = () => {
         <header className={s.sectionContainer}>
             <div className={s.contentContainer}>
                 <div className={s.leftWing}>
-                    <Image src={Logo} alt='IgNews' />
+                    <Link href='/'>
+                        <a>
+                            <Image src={Logo} alt='IgNews' />
+                        </a>
+                    </Link>
                     <nav className={s.menuItemsWrapper}>
                         {menuItems.map(({ label, iconName, isVisible, href }: MenuItemData) => (isVisible &&
                             <MenuItem

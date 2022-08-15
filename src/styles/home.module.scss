@@ -64,6 +64,7 @@
     border-radius: 24px;
     background-color: var(--c-blue-accent-container-primary);
     color: var(--c-on-surface-primary);
+    text-decoration: none;
 
     @media (hover: hover) {
         &:hover {
@@ -79,7 +80,7 @@
     transform: rotate(180deg);
     overflow: hidden;
 
-    & > * {
+    &>* {
         flex-shrink: 0;
     }
 }

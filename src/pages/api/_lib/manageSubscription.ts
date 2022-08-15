@@ -13,15 +13,14 @@ export async function saveSubscription(
 			"ref",
 			q.Get(
 				q.Match(
-					q.Index(
-						"user_by_stripe_customer_id"),
-						customerId
+					q.Index("user_by_stripe_customer_id"),
+					customerId
 				)
 			)
 		)
 	);
 
-	const subscription =  await stripe.subscriptions.retrieve(subscriptionId);
+	const subscription = await stripe.subscriptions.retrieve(subscriptionId);
 
 	const subscriptionData = {
 		id: subscription.id,
@@ -30,10 +29,10 @@ export async function saveSubscription(
 		price_id: subscription.items.data[0].price.id
 	};
 
-	if(createAction) {
+	if (createAction) {
 		await fauna.query(
 			q.Create(
-				q.Collection('subscriptions'), 
+				q.Collection('subscriptions'),
 				{ data: subscriptionData }
 			)
 		);
@@ -44,9 +43,8 @@ export async function saveSubscription(
 					"ref",
 					q.Get(
 						q.Match(
-							q.Index(
-								"subscription_by_id"),
-								subscriptionId
+							q.Index("subscription_by_id"),
+							subscriptionId
 						)
 					)
 				),

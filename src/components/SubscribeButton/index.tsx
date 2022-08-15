@@ -1,4 +1,5 @@
 import { useSession, signIn } from 'next-auth/react';
+import { useRouter } from 'next/router';
 import { api } from '../../services/api';
 import { getStripeJs } from '../../services/stripe-js';
 import s from './styles.module.scss';
@@ -11,17 +12,21 @@ interface SubscribeButtonProps {
 }
 
 //COMPONENT DEFINITION
-export const SubscribeButton = ({ size, priceId, dynamic=false }: SubscribeButtonProps) => {
-    const {data: session} = useSession();
+export const SubscribeButton = ({ size, dynamic = false }: SubscribeButtonProps) => {
+    const { data: session } = useSession();
+    const router = useRouter();
 
     const buttonSizeClass = size === 'LG' ? s.LG : s.SM;
-    const isSubscribed = false;
 
     //EVENT HANDLERS
     async function handleSubscribe() {
-        if(!session) {
+        if (!session) {
             signIn('github');
             return;
+        }
+
+        if (session?.activeSubscription) {
+            router.push('/feed');
         }
 
         try {
@@ -29,15 +34,15 @@ export const SubscribeButton = ({ size, priceId, dynamic=false }: SubscribeButto
             const { sessionId } = await response.data;
             const stripe = await getStripeJs();
             await stripe.redirectToCheckout({ sessionId });
-        } catch(err) {
+        } catch (err) {
             alert(err.message);
         }
     }
 
     //RETURN STATEMENT
-    return isSubscribed && dynamic ? (
+    return session?.activeSubscription && dynamic ? (
         <div className={s.subscribedIndicatorWrapper}>Subscribed</div>
     ) : (
         <button className={`${s.subscribeButton} ${buttonSizeClass}`} onClick={handleSubscribe}>Subscribe now</button>
-    )
-}
+    );
+};

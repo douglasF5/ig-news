@@ -7,16 +7,16 @@ import { fauna } from "../../services/fauna";
 type User = {
     ref: {
         id: string;
-    }
+    };
 
     data: {
         stripe_customer_id: string;
-    }
-}
+    };
+};
 
 const subscribe = async (req: NextApiRequest, res: NextApiResponse) => {
 
-    if(req.method === 'POST') {
+    if (req.method === 'POST') {
 
         const session = await getSession({ req });
 
@@ -31,11 +31,11 @@ const subscribe = async (req: NextApiRequest, res: NextApiResponse) => {
 
         let customerId = user.data.stripe_customer_id;
 
-        if(!customerId) {
+        if (!customerId) {
             const stripeCustomer = await stripe.customers.create({
                 email: session.user.email
             });
-    
+
             await fauna.query(
                 q.Update(
                     q.Ref(q.Collection('users'), user.ref.id),
@@ -65,11 +65,11 @@ const subscribe = async (req: NextApiRequest, res: NextApiResponse) => {
             cancel_url: process.env.STRIPE_CANCEL_URL
         });
 
-        return res.status(200).json({sessionId: stripeCheckoutSession.id})
+        return res.status(200).json({ sessionId: stripeCheckoutSession.id });
     } else {
         res.setHeader('Allow', 'POST');
-        res.status(405).end('Method not allowed.')
+        res.status(405).end('Method not allowed.');
     }
-}
+};
 
 export default subscribe;

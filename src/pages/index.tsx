@@ -7,12 +7,13 @@ import { Header } from '../components/Header';
 import { ChevronLeft } from '../components/Icons';
 import { stripe } from '../services/stripe';
 import { SubscribeButton } from '../components/SubscribeButton';
+import Link from 'next/link';
 
 interface HomeProps {
     product: {
         priceId: string;
         amount: number;
-    }
+    };
 }
 
 export default function Home({ product }: HomeProps) {
@@ -35,17 +36,19 @@ export default function Home({ product }: HomeProps) {
                         <span>for {product.amount} month</span>
                     </p>
                     <div className={s.buttonWrapper}>
-                        <SubscribeButton size='LG' priceId={product.priceId}/>
-                        <button className={s.secondaryButton}>
-                            Check out the feed
-                            <span className={s.iconWrapper}>
-                                <ChevronLeft
-                                    color="var(--c-on-surface-primary)"
-                                    width={24}
-                                    height={24}
-                                />
-                            </span>
-                        </button>
+                        <SubscribeButton size='LG' priceId={product.priceId} />
+                        <Link href='/feed'>
+                            <a className={s.secondaryButton}>
+                                Check out the feed
+                                <span className={s.iconWrapper}>
+                                    <ChevronLeft
+                                        color="var(--c-on-surface-primary)"
+                                        width={24}
+                                        height={24}
+                                    />
+                                </span>
+                            </a>
+                        </Link>
                     </div>
                 </div>
             </main>
@@ -62,12 +65,12 @@ export const getStaticProps: GetStaticProps = async () => {
             style: 'currency',
             currency: 'USD'
         }).format((price.unit_amount / 100)),
-    }
+    };
 
     return {
         props: {
             product
         },
         revalidate: 60 * 60 * 24, //24 hours
-    }
-}
+    };
+};
