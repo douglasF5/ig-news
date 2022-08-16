@@ -41,11 +41,9 @@ export default function Feed({ posts }: PostsProps) {
 
     useEffect(() => {
         if (inputContent) {
-            setFilteredPosts(prev => {
-                return prev.filter(term => {
-                    return term.title.toLowerCase().includes(inputContent.toLowerCase());
-                });
-            });
+            setFilteredPosts(posts.filter(term => {
+                return term.title.toLowerCase().includes(inputContent.toLowerCase());
+            }));
         } else {
             setFilteredPosts(posts);
         }
