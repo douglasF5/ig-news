@@ -8,7 +8,7 @@
 
 ## About
 
-IgNews is a subscription-based news website about ReactJS, built using NextJS, FaunaDB, Prismic CMS and Stripe.
+IgNews is a subscription-based news website about ReactJS, built with NextJS, FaunaDB, Prismic CMS and Stripe.
 
 Tools used:
 
@@ -33,7 +33,7 @@ Tools used:
 <br/>
 
 <img src=".github/project-screenshot-feed.png"><br/>
-<small>Feed with list of posts.</small>
+<small>Feed with a list of posts.</small>
 
 <br/>
 
@@ -43,7 +43,7 @@ Tools used:
 <br/>
 
 <img src=".github/project-screenshot-header-detail.png"><br/>
-<small>Dynamic header show users log in and subscription statuses.</small>
+<small>Dynamic header shows users log in and subscription statuses.</small>
 
 <br/>
 
