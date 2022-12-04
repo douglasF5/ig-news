@@ -1,5 +1,6 @@
 @mixin btn {
     border: none;
+    white-space: nowrap;
 
     &:active {
         transform: scale(0.98);

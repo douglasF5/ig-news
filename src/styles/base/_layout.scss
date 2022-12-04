@@ -1,27 +1,33 @@
 @mixin break($size) {
-    @media screen and (max-width: #{$size}px) {
-      @content;
-    }
+  @media screen and (max-width: #{$size}px) {
+    @content;
+  }
 }
 
 @mixin sectionContainer {
-    padding: 0 48px;
+  padding: 0 48px;
+
+  @media screen and (max-width: 500px) {
+    padding: 0 24px;
+  }
 }
 
 @mixin contentContainer {
-    max-width: 1100px;
-    margin: 0 auto;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 @mixin stack($direction: 'H', $justify: flex-start, $align: flex-start) {
-    display: flex;
+  display: flex;
 
-    @if $direction == 'H' {
-      flex-direction: row;
-    } @else {
-      flex-direction: column;
-    }
+  @if $direction =='H' {
+    flex-direction: row;
+  }
 
-    justify-content: $justify;
-    align-items: $align;
+  @else {
+    flex-direction: column;
+  }
+
+  justify-content: $justify;
+  align-items: $align;
 }

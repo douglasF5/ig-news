@@ -1,34 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# IgNews - Exercise 6 from Ignite course by Rocketseat
 
-## Getting Started
+- [About](#about)
+- [Project screenshots](#project-screenshots)
+- [Extra notes](#extra-notes)
 
-First, run the development server:
+<br>
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## About
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+IgNews is a subscription-based news website about ReactJS, built using NextJS, FaunaDB, Prismic CMS and Stripe.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Tools used:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- Typescript
+- ReactJS
+- NextJS
+- Axios
+- Prismic CMS
+- FaunaDB
+- Stripe
+- SASS
+- Framer Motion
+- SVGR
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+<br>
 
-## Learn More
+## Project screenshots
 
-To learn more about Next.js, take a look at the following resources:
+<img src=".github/project-screenshot-home.png"><br/>
+<small>Application home.</small>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<br/>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<img src=".github/project-screenshot-feed.png"><br/>
+<small>Feed with list of posts.</small>
 
-## Deploy on Vercel
+<br/>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<img src=".github/project-screenshot-post.png"><br/>
+<small>Blog post in reading mode.</small>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<br/>
+
+<img src=".github/project-screenshot-header-detail.png"><br/>
+<small>Dynamic header show users log in and subscription statuses.</small>
+
+<br/>
+
+## Extra notes
+
+- As an exercise, this project wasn’t focused on advanced optimizations regarding data storage, processing, accessibility, scalability, cross-browser compatibilities, etc. There’s still a lot to be done about it.
+- As most projects, this one is not bug/error-free. If you find any bug or unexpected behavior, feel free to get in touch, here is my email - dfaferreira46@gmail.com

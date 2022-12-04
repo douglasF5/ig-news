@@ -29,6 +29,7 @@
     border-radius: 24px;
     background-color: var(--c-blue-accent-container-primary);
     color: var(--c-on-surface-primary);
+    white-space: nowrap;
 
     p {
         @include t.base(M, "medium", "one-liner");

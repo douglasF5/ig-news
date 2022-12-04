@@ -11,6 +11,10 @@
 .contentContainer {
     @include l.contentContainer;
     @include l.stack(H, space-between, center);
+
+    @include l.break(803) {
+        padding: u.toRem(12) 0;
+    }
 }
 
 .leftWing {
@@ -31,10 +35,21 @@
 .rightWing {
     @include l.stack(H, flex-start, center);
 
-    gap: u.toRem(16);
+    gap: u.toRem(8);
 }
 
 .menuItemsWrapper {
     @include l.stack;
     gap: u.toRem(16);
+
+    @include l.break(803) {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+        justify-content: center;
+        background-color: var(--c-surface-primary);
+        gap: u.toRem(12);
+    }
 }

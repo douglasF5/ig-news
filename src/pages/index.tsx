@@ -24,9 +24,6 @@ export default function Home({ product }: HomeProps) {
             </Head>
             <Header />
             <main className={s.sectionContainer}>
-                <div className={s.illustration}>
-                    <Image src={Illustration} alt="Illustration" />
-                </div>
                 <div className={s.contentContainer}>
                     <h1>
                         News about the <span>React</span> world
@@ -50,6 +47,9 @@ export default function Home({ product }: HomeProps) {
                             </a>
                         </Link>
                     </div>
+                </div>
+                <div className={s.illustration}>
+                    <Image src={Illustration} alt="Illustration" />
                 </div>
             </main>
         </>

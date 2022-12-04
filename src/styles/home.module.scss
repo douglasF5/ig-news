@@ -7,8 +7,13 @@
     @include l.sectionContainer;
 
     position: relative;
-    height: calc(100vh - 60px);
+    min-height: calc(100vh - 60px);
     overflow: hidden;
+
+    @include l.break(1140) {
+        @include l.stack(V, flex-start);
+        gap: u.toRem(24);
+    }
 }
 
 .contentContainer {
@@ -18,7 +23,14 @@
     position: relative;
     gap: u.toRem(24);
     top: 45%;
-    transform: translateY(-50%);
+    transform: translateY(35%);
+
+    @include l.break(1140) {
+        padding: 48px 0 0 0;
+        position: static;
+        transform: translateY(0%);
+        gap: u.toRem(16);
+    }
 
     h1 {
         @include t.display;
@@ -27,6 +39,14 @@
 
         span {
             color: var(--c-blue-accent-primary);
+        }
+
+        @include l.break(1140) {
+            font-size: u.toRem(48);
+        }
+
+        @include l.break(400) {
+            font-size: u.toRem(32);
         }
     }
 
@@ -38,20 +58,34 @@
         span {
             color: var(--c-blue-accent-primary);
         }
+
+        @include l.break(400) {
+            font-size: u.toRem(18);
+        }
     }
 }
 
 .illustration {
-    width: max(75vw, 1200px);
+    width: max(60vw, 1100px);
     position: absolute;
     right: -80px;
     bottom: -80px;
+
+    @include l.break(1140) {
+        width: 100%;
+        position: static;
+    }
 }
 
 .buttonWrapper {
     @include l.stack(H, flex-start, center);
+    gap: u.toRem(8);
 
-    gap: u.toRem(16);
+    @include l.break(400) {
+        align-self: stretch;
+        flex-direction: column;
+        align-items: stretch;
+    }
 }
 
 .secondaryButton {
@@ -70,6 +104,10 @@
         &:hover {
             filter: brightness(120%);
         }
+    }
+
+    @include l.break(400) {
+        @include l.stack(H, center, center);
     }
 }
 

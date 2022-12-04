@@ -78,6 +78,11 @@
     grid-template: auto / repeat(2, 1fr);
     column-gap: u.toRem(40);
     border-top: 1px solid var(--c-outline-primary);
+
+    @include l.break(894) {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 .postWrapper {
