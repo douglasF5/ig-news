@@ -1,4 +1,4 @@
-# IgNews - Exercise 6 from Ignite course by Rocketseat
+# IgNews
 
 - [About](#about)
 - [Project screenshots](#project-screenshots)
